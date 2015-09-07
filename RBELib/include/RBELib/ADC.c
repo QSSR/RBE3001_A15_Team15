@@ -20,6 +20,9 @@
  * using the channel parameter.
  */
 void initADC(int channel){
+
+	//enables global interrupts
+	SREG |= 0x80;
 	unsigned char x = 0x00;
 	int i = 0;
 	//takes int channel and produces hex equivalent for ADMUX

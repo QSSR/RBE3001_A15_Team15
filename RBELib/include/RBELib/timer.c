@@ -5,6 +5,7 @@
  *      Author: Michael
  */
 #include <avr/io.h>
+
 /**
  * @brief Initializes the specified timer in the specified mode. This
  * header file provides constants for NORMAL operation mode and
@@ -26,27 +27,34 @@ void initTimer(int timer, int mode, unsigned int comp){
 
 		if(mode == 0){
 			TCCR0A = 0x00;
+			TCCR0B = 0x01;
 		}
 		else if(mode == 1){
 			TCCR0A = 0x02;
+			TCCR0B = 0x01;
 			OCR0A = comp;
 		}
 	}
 	else if(timer == 1){
 		if(mode == 0){
 			TCCR1A = 0x00;
+			//clock prescaler set to 8
+			TCCR1B = 0x02;
 		}
 		else if(mode == 1){
 			TCCR1B = 0x08;
+			TCCR1B = 0x01;
 			OCR1A = comp;
 		}
 	}
 	else{
 		if(mode == 0){
 			TCCR2A = 0x00;
+			TCCR2B = 0x01;
 		}
 		else if(mode == 1){
 			TCCR2A = 0x02;
+			TCCR2B = 0x01;
 			OCR2A = comp;
 		}
 	}

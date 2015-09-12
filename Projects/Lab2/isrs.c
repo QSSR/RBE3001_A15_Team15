@@ -1,3 +1,4 @@
+#include <RBELib/RBELib.h>
 //Globals
 //Timer0
 volatile unsigned long counter = 0;
